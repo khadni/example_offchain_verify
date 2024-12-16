@@ -1,0 +1,29 @@
+[package]
+name = "example_verify"
+version = "0.1.0"
+description = "Created with Anchor"
+edition = "2021"
+
+[lib]
+crate-type = ["cdylib", "lib"]
+
+[[bin]]
+name = "example_verify"
+path = "src/bin/main.rs"
+
+[features]
+no-entrypoint = []
+no-idl = []
+no-log-ix-name = []
+cpi = ["no-entrypoint"]
+default = []
+
+[dependencies]
+data-streams-solana-verifier-sdk = { git = "https://github.com/smartcontractkit/smart-contract-examples.git", branch = "data-streams-solana-integration", package = "data-streams-solana-verifier-sdk" }
+sdk-off-chain = { git = "https://github.com/smartcontractkit/smart-contract-examples.git", branch = "data-streams-solana-integration", package = "sdk-off-chain" }
+data-streams-report = { git = "https://github.com/smartcontractkit/data-streams-sdk.git" }
+
+# Additional required dependencies
+solana-sdk = "1.18.26"
+solana-client = "1.18.26"
+hex = "0.4.3"
